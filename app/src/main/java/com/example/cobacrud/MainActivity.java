@@ -81,8 +81,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == buttonAdd) {
-            addMahasiswa();
+
+            if (editTextName.getText().toString().isEmpty() ||
+                    editTextAddress.getText().toString().isEmpty()) {
+
+                Toast.makeText(getApplicationContext(), "Error! Silahkan masukkan inputan!",
+                        Toast.LENGTH_SHORT).show();
+
+            } else {
+                addMahasiswa();
+            }
+
         }
+
         if (v == buttonView) {
             startActivity(new Intent(this, TampilSemuaMahasiswa.class));
         }
